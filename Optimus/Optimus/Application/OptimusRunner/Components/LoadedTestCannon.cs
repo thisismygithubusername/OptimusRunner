@@ -1,8 +1,10 @@
-﻿namespace Optimus.Application.OptimusRunner.Components
+﻿using Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options;
+
+namespace Optimus.Application.OptimusRunner.Components
 {
     public class LoadedTestCannon
     {
-        public LoadedTestCannon()
+        public LoadedTestCannon(IDeploymentOption runner)
         {
 
         }

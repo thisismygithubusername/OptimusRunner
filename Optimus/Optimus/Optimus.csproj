@@ -45,20 +45,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\OptimusRunner\Components\LoadedTestCannon.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\DeploymentKeys.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\DeploymentOptions.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\Options\CategoryModule.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\Options\FullRunModule.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\Options\GoogleModule.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\Options\IRunnerOption.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\Options\JenkinsModule.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\Options\OptionModule.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\Options\RunFixturesModule.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\Options\SpecificTestsModule.cs" />
-    <Compile Include="Application\OptimusRunner\Optimus.cs" />
+    <Compile Include="Application\OptimusRunner\Components\DeploymentKeyHandler.cs" />
+    <Compile Include="Application\OptimusRunner\Components\DeploymentOptions.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\CategoryModule.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\FullRunModule.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\GoogleModule.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\IDeploymentOption.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\JenkinsModule.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\OptionModule.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\RunFixturesModule.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\SpecificTestsModule.cs" />
+    <Compile Include="Application\OptimusRunner\OptimusPrime.cs" />
     <Compile Include="Application\OptimusRunner\Utils\DefaultPaths.cs" />
     <Compile Include="Application\Program.cs" />
-    <Compile Include="Application\OptimusRunner\ExecutionOptions\CommandCenter.cs" />
+    <Compile Include="Application\OptimusRunner\Components\CommandCenter.cs" />
     <Compile Include="Application\OptimusRunner\Utils\TestAssembler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
