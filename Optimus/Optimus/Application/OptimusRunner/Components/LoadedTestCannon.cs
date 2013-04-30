@@ -4,14 +4,16 @@ namespace Optimus.Application.OptimusRunner.Components
 {
     public class LoadedTestCannon
     {
-        public LoadedTestCannon(IDeploymentOption runner)
-        {
+        private readonly IDeploymentOption _deployer; 
 
+        public LoadedTestCannon(IDeploymentOption deployModule)
+        {
+            _deployer = deployModule;
         }
 
         public void Fire()
         {
-
+            _deployer.Run();
         }
     }
 }

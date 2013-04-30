@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Loggers\ErrorsLogger.cs" />
+    <Compile Include="Application\Loggers\StatusLogger.cs" />
+    <Compile Include="Application\Loggers\TestInfoLogger.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\DeploymentKeys.cs" />
     <Compile Include="Application\OptimusRunner\Components\LoadedTestCannon.cs" />
     <Compile Include="Application\OptimusRunner\Components\DeploymentKeyHandler.cs" />
     <Compile Include="Application\OptimusRunner\Components\DeploymentOptions.cs" />

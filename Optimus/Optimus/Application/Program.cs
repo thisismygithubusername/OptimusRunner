@@ -6,9 +6,8 @@ namespace Optimus.Application
     {
         static void Main(string[] args)
         {
-            var Optimus = new OptimusPrime(args);
-            //Optimus.Transform().Fire();
-
+            var optimus = new OptimusPrime(args);
+            optimus.CommandControl.VerifyDeploymentOption().Transform().Fire();
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Optimus.Application.OptimusRunner
         public OptimusPrime(string[] args)
         {
             InitArgs = args;
-            //Transform();
         }
 
         private string[] InitArgs
@@ -17,31 +16,23 @@ namespace Optimus.Application.OptimusRunner
 
         public CommandCenter CommandControl
         {
-            get { return new CommandCenter(InitArgs);}
+            get { return new CommandCenter(InitArgs); }
         }
-        
-        /*
-         * Setups up Optimus for commands / inits tests
-         */
-        /*
-        public LoadedTestCannon Transform()
-        {
-            return AssembleTestTargets();
-        }
-         * */
-        
-        /*
-         * find tests wtih bases on options. 
-         */
-        /*
-        private LoadedTestCannon AssembleTestTargets()
-        {
-            //Todo
-            return new LoadedTestCannon();
-        }
-         * */
-        
 
+        public class OptimusPrimed
+        {
+            private LoadedTestCannon TestCannon { get; set; }
+            
+            public OptimusPrimed(LoadedTestCannon testCannon)
+            {
+                TestCannon = testCannon;
+            }
 
+            public LoadedTestCannon Transform()
+            {
+                return TestCannon;
+            }
+
+        }
     }
 }

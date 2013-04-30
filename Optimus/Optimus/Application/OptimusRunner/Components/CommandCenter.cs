@@ -7,10 +7,28 @@ namespace Optimus.Application.OptimusRunner.Components
 {
     public class CommandCenter
     {
-        private string _mainKey; 
+        private string _mainKey;
+        private Queue<string> ValidatedExecutionArgs { get; set; }
+        private ConsoleColor _defaultColor; 
+
         public CommandCenter(string[] args)
         {
             ValidateArgs(args);
+        }
+
+        public OptimusPrime.OptimusPrimed VerifyDeploymentOption()
+        {
+            return new OptimusPrime.OptimusPrimed(new LoadedTestCannon(Option));
+        }
+
+        private IDeploymentOption Option
+        {
+            get { return new DeploymentOptions(ValidatedExecutionArgs).RetrieveDeploymentModule(_mainKey); }
+        }
+
+        private static bool IsValidDeploymentKey(string key)
+        {
+            return new DeploymentKeyHandler().HasKey(key);
         }
 
         private void ValidateArgs(string[] args)
@@ -21,34 +39,53 @@ namespace Optimus.Application.OptimusRunner.Components
             }
             else
             {
-                throw new InvalidOperationException("Not supported operation:" + args[0]);
+                SetConsoleErrorColor().WriteError(args).TerminateExecution();
             }
         }
 
-        private Queue<string> ValidatedExecutionArgs { get; set; }
-
-        public IDeploymentOption VerifiedDeploymentOption()
+        private CommandCenter SetConsoleErrorColor()
         {
-            return new DeploymentOptions(ValidatedExecutionArgs).RetrieveDeploymentModule(_mainKey);
+            return SaveOldConsoleColor().ChangeConsoleColor(ConsoleColor.Red);
         }
 
-        private bool IsValidDeploymentKey(string key)
+        private CommandCenter SaveOldConsoleColor()
         {
-            return new DeploymentKeyHandler().HasKey(key);
+            _defaultColor = Console.ForegroundColor;
+            return this;
+        }
+
+        private CommandCenter WriteError(string[] args)
+        {
+            Console.WriteLine("Unsupported operation: " + args[0]);
+            Console.ForegroundColor = _defaultColor;
+            return this;
+        }
+
+        private CommandCenter ChangeConsoleColor(ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            return this;
+        }
+
+        private void TerminateExecution()
+        {
+            Environment.Exit(0);
         }
 
         private void SetExecutionvaluesFromArgs(string[] args)
         {
-            var queue = new Queue<string>();
             _mainKey = args[0];
-            for (int i = 1; i < args.Length; i++)
-            {
-                queue.Enqueue(args[i]);    
-            }
-            ValidatedExecutionArgs = queue;
+            ValidatedExecutionArgs = LoadQueueofExectionArgs(args);
         }
 
-         
-
+        private Queue<string> LoadQueueofExectionArgs(string[] args)
+        {
+            var queue = new Queue<string>();
+            for (int i = 1; i < args.Length; i++)
+            {
+                queue.Enqueue(args[i]);
+            }
+            return queue;
+        }
     }
 }

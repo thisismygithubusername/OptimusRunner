@@ -50,7 +50,7 @@ namespace Optimus.Application.OptimusRunner.Components
         public IDeploymentOption RetrieveDeploymentModule(string deploymentKey)
         {
             MethodInfo info = GetType().GetMethod(deploymentKey);
-            var testfile = info.Invoke(null, null);
+            var testfile = info.Invoke(this, null);
             return testfile as IDeploymentOption;
         }
 
