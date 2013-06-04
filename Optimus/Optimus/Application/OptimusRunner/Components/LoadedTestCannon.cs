@@ -1,4 +1,4 @@
-﻿using Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options;
+﻿using Optimus.Application.OptimusRunner.Components.ExecutionOptions;
 
 namespace Optimus.Application.OptimusRunner.Components
 {

@@ -47,20 +47,25 @@
     <Compile Include="Application\Loggers\ErrorsLogger.cs" />
     <Compile Include="Application\Loggers\StatusLogger.cs" />
     <Compile Include="Application\Loggers\TestInfoLogger.cs" />
-    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\DeploymentKeys.cs" />
+    <Compile Include="Application\OptimusRunner\Components\DeploymentKeys.cs" />
     <Compile Include="Application\OptimusRunner\Components\LoadedTestCannon.cs" />
     <Compile Include="Application\OptimusRunner\Components\DeploymentKeyHandler.cs" />
     <Compile Include="Application\OptimusRunner\Components\DeploymentOptions.cs" />
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\CategoryModule.cs" />
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\FullRunModule.cs" />
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\GoogleModule.cs" />
-    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\IDeploymentOption.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\IDeploymentOption.cs" />
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\JenkinsModule.cs" />
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\OptionModule.cs" />
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\RunFixturesModule.cs" />
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\SpecificTestsModule.cs" />
     <Compile Include="Application\OptimusRunner\OptimusPrime.cs" />
+    <Compile Include="Application\OptimusRunner\Utils\DataBuilders\OptimusArgBuilder.cs" />
     <Compile Include="Application\OptimusRunner\Utils\DefaultPaths.cs" />
+    <Compile Include="Application\OptimusRunner\Utils\Verifiers\AssemblyVerification.cs" />
+    <Compile Include="Application\OptimusRunner\Utils\Verifiers\FixtureVerification.cs" />
+    <Compile Include="Application\OptimusRunner\Utils\Verifiers\OptimusVerification.cs" />
+    <Compile Include="Application\OptimusRunner\Utils\Verifiers\TestVerification.cs" />
     <Compile Include="Application\Program.cs" />
     <Compile Include="Application\OptimusRunner\Components\CommandCenter.cs" />
     <Compile Include="Application\OptimusRunner\Utils\TestAssembler.cs" />
@@ -69,9 +74,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Application\OptimusRunner\Utils\DataBuilders\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

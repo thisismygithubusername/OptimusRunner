@@ -3,12 +3,12 @@ using GallioRunnerLibrary.Runners;
 
 namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
 {
+    /*
+     * "SpecificTests: path test test1 test2 test3"
+     */
     public class SpecificTestsModule : OptionModule, IDeploymentOption
     {
-        //Done
-        /*
-         * "SpecificTests: path test test1 test2 test3"
-         */
+
         public SpecificTestsModule(Queue<string> args) : base(args) {}
 
         public void Run()
