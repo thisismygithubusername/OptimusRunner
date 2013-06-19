@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using GallioRunnerLibrary.Models.TestModels;
 
 namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
 {
-    //Todo
-    public class CategoryModule : OptionModule, IDeploymentOption
+    public class AttributeModule : OptionModule, IDeploymentOption
     {
-        public CategoryModule(Queue<string> args) : base(args)
+        public AttributeModule(Queue<string> args) : base(args)
         {
-
         }
 
-        public CategoryModule()
+        public AttributeModule()
             : base()
         {
-
         }
 
         public void Run()
@@ -25,9 +25,9 @@ namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
 
         public void DisplayHelpInfo()
         {
-            const string message = "This option runs tests based on support gallio Category name" +
+            const string message = "This option runs tests based on a custom attribute name." +
                                    " Requires a path to the assembly followed by a string " +
-                                   "correspinding to the name of the category";
+                                   "correspinding to the name of the attribte";
             Console.WriteLine(message);
         }
 

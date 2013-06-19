@@ -29,18 +29,25 @@ namespace Optimus.Application.OptimusRunner.Components
 
         private static bool IsValidDeploymentKey(string key)
         {
-            return new DeploymentKeyHandler().HasKey(key);
+            return DeploymentKeyHandler.IsDeploymentOption(key);
         }
 
         private void ValidateArgs(string[] args)
         {
-            if (IsValidDeploymentKey(args[0]))
+            if (args.Length < 1)
             {
-                SetExecutionvaluesFromArgs(args);
+                SetExecutionvalues();
             }
             else
             {
-                SetConsoleErrorColor().WriteError(args).TerminateExecution();
+                if (IsValidDeploymentKey(args[0]))
+                {
+                    SetExecutionvalues(args);
+                }
+                else
+                {
+                    SetConsoleErrorColor().WriteError(args).TerminateExecution();
+                }
             }
         }
 
@@ -73,10 +80,17 @@ namespace Optimus.Application.OptimusRunner.Components
             Environment.Exit(0);
         }
 
-        private void SetExecutionvaluesFromArgs(string[] args)
+        private void SetExecutionvalues(string[] args)
         {
             _mainKey = args[0];
             ValidatedExecutionArgs = LoadQueueofExectionArgs(args);
+        }
+
+        private void SetExecutionvalues()
+        {
+            var consoleInterpreter = new Interpreter();
+            _mainKey = consoleInterpreter.GuidedSetup();
+            ValidatedExecutionArgs = consoleInterpreter.BuiltDeploymentOptions;
         }
 
         private Queue<string> LoadQueueofExectionArgs(string[] args)

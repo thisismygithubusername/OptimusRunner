@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Loggers\LoggerExtension.cs" />
     <Compile Include="Models\AssemblyModels\TestAssembly.cs" />
     <Compile Include="Models\TestModels\GallioTestRun.cs" />
     <Compile Include="Models\TestModels\TestRun.cs" />

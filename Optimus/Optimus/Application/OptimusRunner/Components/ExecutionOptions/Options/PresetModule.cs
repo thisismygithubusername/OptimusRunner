@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using GallioRunnerLibrary.Models.TestModels;
 
 namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
 {
-    //Todo
-    public class CategoryModule : OptionModule, IDeploymentOption
+    public class PresetModule : OptionModule, IDeploymentOption
     {
-        public CategoryModule(Queue<string> args) : base(args)
+        public PresetModule(Queue<string> args) : base(args)
         {
-
         }
 
-        public CategoryModule()
-            : base()
+        public PresetModule()
         {
-
         }
-
+         
         public void Run()
         {
             throw new NotImplementedException();
@@ -25,9 +24,9 @@ namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
 
         public void DisplayHelpInfo()
         {
-            const string message = "This option runs tests based on support gallio Category name" +
-                                   " Requires a path to the assembly followed by a string " +
-                                   "correspinding to the name of the category";
+            const string message = "This option runs individual tests as apposed to a full run" +
+                                   " Requires a path to the assembly followed by the names " +
+                                   "of the desired tests to run.";
             Console.WriteLine(message);
         }
 

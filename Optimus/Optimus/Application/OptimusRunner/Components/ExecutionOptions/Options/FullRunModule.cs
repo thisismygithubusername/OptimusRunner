@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using GallioRunnerLibrary.Models.TestModels;
 using GallioRunnerLibrary.Runners;
 
 namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
@@ -14,6 +16,12 @@ namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
             ParseAssemblies();
         }
 
+        public FullRunModule()
+            : base()
+        {
+
+        }
+
         public void Run()
         {
             if (_multipleRunners)
@@ -22,6 +30,21 @@ namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
             }
             RunSingleRunner();   
         }
+
+        public void DisplayHelpInfo()
+        {
+            const string message =
+                "This option runs a full test run on a given binary. " +
+                "You need to specify a location of the binary file";
+            Console.WriteLine(message);
+        }
+        //Todo
+        public Queue<string> GuidedArgSetup(string path)
+        {
+            return new Queue<string>();
+        }
+
+        public GallioTestRun TestResults { get; set; }
 
         private void ParseAssemblies()
         {
@@ -36,6 +59,7 @@ namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
         {
             var runner = new SimpleGallioRunner(_assembliesPaths.First());
             runner.RunLoadedTests();
+            var results = runner.TestRuns.First();
         }
         //Todo
         private void RunMultipleRunners()

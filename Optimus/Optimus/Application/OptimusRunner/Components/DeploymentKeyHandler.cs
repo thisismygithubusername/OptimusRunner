@@ -17,6 +17,16 @@ namespace Optimus.Application.OptimusRunner.Components
             return _deployKeys.Contains(key);
         }
 
+        public List<string> DeployKeys
+        {
+            get { return _deployKeys; }
+        } 
+
+        public static bool IsDeploymentOption(string key)
+        {
+            return new DeploymentKeyHandler().HasKey(key);
+        }
+
         private void LoadKeys()
         {
             AddKey(DeploymentKeys.FullRun)

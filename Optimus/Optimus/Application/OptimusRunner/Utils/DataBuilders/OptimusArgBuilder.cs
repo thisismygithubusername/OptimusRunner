@@ -27,12 +27,12 @@ namespace Optimus.Application.OptimusRunner.Utils.DataBuilders
         {
             return "key " + "Path " + GeneratedTestRunArgs;
         }
-
+        /*
         public static string ConvertsListToString(IEnumerable<string> list )
         {
             
         }
-
+        */
         private static string ListToSingleArgString(IEnumerable<string> list )
         {
             var argsString = "";

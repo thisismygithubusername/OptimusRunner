@@ -1,4 +1,6 @@
-﻿using Optimus.Application.OptimusRunner;
+﻿using System;
+using Optimus.Application.OptimusRunner;
+using Optimus.Application.OptimusRunner.Components;
 
 namespace Optimus.Application
 {
@@ -6,8 +8,16 @@ namespace Optimus.Application
     {
         static void Main(string[] args)
         {
-            var optimus = new OptimusPrime(args);
-            optimus.CommandControl.VerifyDeploymentOption().Transform().Fire();
+            StandardMethod(args);
         }
+
+        public static void StandardMethod(string[] args)
+        {
+            var results = new OptimusPrime(args).CommandControl.VerifyDeploymentOption().Transform().Fire();
+            var morresults = results.Results;
+            Console.WriteLine(morresults);
+        }
+
+        
     }
 }

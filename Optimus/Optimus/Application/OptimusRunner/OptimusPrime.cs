@@ -14,6 +14,16 @@ namespace Optimus.Application.OptimusRunner
             get; set;
         }
 
+        public static void RolloutTests(string[] args)
+        {
+            new OptimusPrime(args).CommandControl.VerifyDeploymentOption().Transform().Fire();
+        }
+
+        public static void IntelDecoder()
+        {
+            //Return new translater of to build args 
+        }
+
         public CommandCenter CommandControl
         {
             get { return new CommandCenter(InitArgs); }

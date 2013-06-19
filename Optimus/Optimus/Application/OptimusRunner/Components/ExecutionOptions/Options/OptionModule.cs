@@ -9,6 +9,11 @@ namespace Optimus.Application.OptimusRunner.Components.ExecutionOptions.Options
             ParseOptions(args);
         }
 
+        public OptionModule()
+        {
+            
+        }
+
         public List<string> ExecutionValues
         {
             get; set;

@@ -35,6 +35,9 @@
     <Reference Include="GallioRunnerLibrary">
       <HintPath>..\..\GallioRunnerLibrary\GallioRunnerLibrary\bin\Debug\GallioRunnerLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="MBLogger">
+      <HintPath>.\MBLogger.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,7 +50,11 @@
     <Compile Include="Application\Loggers\ErrorsLogger.cs" />
     <Compile Include="Application\Loggers\StatusLogger.cs" />
     <Compile Include="Application\Loggers\TestInfoLogger.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ConsoleInterface.cs" />
     <Compile Include="Application\OptimusRunner\Components\DeploymentKeys.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\AttributeModule.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\PresetModule.cs" />
+    <Compile Include="Application\OptimusRunner\Components\Interpreter.cs" />
     <Compile Include="Application\OptimusRunner\Components\LoadedTestCannon.cs" />
     <Compile Include="Application\OptimusRunner\Components\DeploymentKeyHandler.cs" />
     <Compile Include="Application\OptimusRunner\Components\DeploymentOptions.cs" />
@@ -59,6 +66,7 @@
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\OptionModule.cs" />
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\RunFixturesModule.cs" />
     <Compile Include="Application\OptimusRunner\Components\ExecutionOptions\Options\SpecificTestsModule.cs" />
+    <Compile Include="Application\OptimusRunner\Components\ResharperBullShit.cs" />
     <Compile Include="Application\OptimusRunner\OptimusPrime.cs" />
     <Compile Include="Application\OptimusRunner\Utils\DataBuilders\OptimusArgBuilder.cs" />
     <Compile Include="Application\OptimusRunner\Utils\DefaultPaths.cs" />

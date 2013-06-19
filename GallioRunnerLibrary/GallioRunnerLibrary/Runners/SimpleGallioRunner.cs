@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +20,12 @@ namespace GallioRunnerLibrary.Runners
         private const string GallioDirectory = @"C:\Program Files\Gallio\bin\";
         private RuntimeSetup Setup { get; set; }
         private ILogger Logger { get; set; }
+        private TextLogger TextLogger { get; set; }
         private readonly List<string> _tests = new List<string>();
         private readonly GallioFilterGenerator _filterGenerator = new GallioFilterGenerator();
         private readonly List<GallioTestRun> _testRuns = new List<GallioTestRun>();
         private readonly List<TestRun> _testsRan = new List<TestRun>();
+        private TextWriter ExceptionLogs { get; set; }
 
         public SimpleGallioRunner(string assemblyLocation)
         {
@@ -141,7 +144,9 @@ namespace GallioRunnerLibrary.Runners
 
         private SimpleGallioRunner SetupLogger()
         {
-            Logger = (ILogger)new RichConsoleLogger(NativeConsole.Instance);
+            //Logger = (ILogger)new RichConsoleLogger(NativeConsole.Instance);
+            ExceptionLogs = new StringWriter();
+            TextLogger = new TextLogger(ExceptionLogs);
             return this;
         }
 
@@ -149,7 +154,8 @@ namespace GallioRunnerLibrary.Runners
         {
             Launcher = new TestLauncher
             {
-                Logger = Logger,
+                //Logger = Logger,
+                Logger = TextLogger,
                 ProgressMonitorProvider = NullProgressMonitorProvider.Instance,
                 RuntimeSetup = Setup,
                 TestProject = { TestRunnerFactoryName = StandardTestRunnerFactoryNames.Local }
@@ -160,12 +166,19 @@ namespace GallioRunnerLibrary.Runners
         private SimpleGallioRunner AddAssemblyLocationToLauncher()
         {
             Launcher.AddFilePattern(AssemblyLocation);
+            Launcher.ShowReports = true;
+            Launcher.
             return this;
         }
 
         private void InitializeRuntimeBootStrap()
         {
             RuntimeBootstrap.Initialize(Setup, Logger);
+        }
+        //alternate runner implementation 
+        private ITestRunner CreateRunner()
+        {
+            return TestRunnerUtils.CreateTestRunnerByName(StandardTestRunnerFactoryNames.IsolatedAppDomain);
         }
 
     }

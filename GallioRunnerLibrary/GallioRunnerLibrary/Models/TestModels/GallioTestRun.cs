@@ -16,7 +16,13 @@ namespace GallioRunnerLibrary.Models.TestModels
         }
 
         public DateTime StartTime { get; set; }
+
         public TestLauncherResult Result { get; set; }
+
+        public void DumpRun()
+        {
+            Console.WriteLine(Result.Report.ToString());
+        }
 
     }
 }
