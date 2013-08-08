@@ -167,7 +167,6 @@ namespace GallioRunnerLibrary.Runners
         {
             Launcher.AddFilePattern(AssemblyLocation);
             Launcher.ShowReports = true;
-            Launcher.
             return this;
         }
 
